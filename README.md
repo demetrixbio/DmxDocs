@@ -9,7 +9,7 @@ This is a *subset* of the Demetrix devdocs.  It was written for our internal use
 
 (Scientists who want to learn about computing concepts, start here!)
 
-* [I want to learn F\#.  What are some good resources?](Compsci/Fsharp-Learning) `.fsharp`
+* [I want to learn F\#.  What are some good resources?](Compsci/Fsharp-Learning.md) `.fsharp`
 * [Namespaces vs modules](Standards/Namespaces-vs-Modules) `.backend` `.frontend` `.fsharp`
 
 ## .Standards
