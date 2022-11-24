@@ -29,19 +29,19 @@ It's very easy.
 9. Do a final build
 10. Complete
 
-![remove_project_from_solution](uploads/4a5ea06ec3200365477e510c5a9e79f2/remove_project_from_solution.gif)
+![remove_project_from_solution](/uploads/4a5ea06ec3200365477e510c5a9e79f2/remove_project_from_solution.gif)
 
 ## Example
 
 This is an example of how to set up a solution for developing strains: (the unloaded projects should be removed from the solution):
 
-![image](uploads/d370b69160aa1f6713b5ea00f1244d01/image.png)
-![image](uploads/f2b3fc8d65f368464099c9bb06201d64/image.png)
-![image](uploads/51007fff366b936331e93df789e80c8e/image.png)
+![image](/uploads/d370b69160aa1f6713b5ea00f1244d01/image.png)
+![image](/uploads/f2b3fc8d65f368464099c9bb06201d64/image.png)
+![image](/uploads/51007fff366b936331e93df789e80c8e/image.png)
 
 ### Result
 
-![image](uploads/d444416008080eaa7f315711ba90de05/image.png)
+![image](/uploads/d444416008080eaa7f315711ba90de05/image.png)
 
 ## FAQ
 

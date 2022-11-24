@@ -443,11 +443,11 @@ In case of some tricky queries, Postgres might get confused and do crazy things 
 darren  11:18 PM
 Dropping some notes here from looking at the query performance.  We did some table analysis which moved things around but probably didn't change things dramatically.   This piece of query seems to be quite problematic (it's triggering a full table scan of stage)
 
-![image](uploads/416fba92baa93c26984642d928b4d512/image.png)
+![image](/uploads/416fba92baa93c26984642d928b4d512/image.png)
 
 Causes db to try this (full scan to find all the non deleted rows as a first step)
 
-![image](uploads/5196bacb48d768263bf44766385ffb6a/image.png)
+![image](/uploads/5196bacb48d768263bf44766385ffb6a/image.png)
 
 not sure why it doesn't wait to get the list of ids , then pull stages and finally filter down the non deleted ones, but it seems to think scanning the stage table is a good plan
 
@@ -471,7 +471,7 @@ I did some vaccum analyze runs on a few of the bigger tables including scan and 
 darren  2:45 AM
 It's fascinating - the optimizer takes a dim view of things naturally - if it thought it were better it would have proposed it itself probably.  Going to test if it really is worse but on paper (in silico?) it still wants to scan that collection_action table
 
-![image](uploads/f7c22dc13a51484f81427b87702d0615/image.png)
+![image](/uploads/f7c22dc13a51484f81427b87702d0615/image.png)
 
 darren  3:00 AM
 part of the problem is that it seems to be working from the other end - it is building the tree up from the botton and still wants to take the collection_action table and strip it down first and join against the parent.  It's a little odd - that join clause is acting on collection_action and c and s all in the one statement which I'm sure makes the optimizer a little more surly than usual
@@ -479,26 +479,26 @@ part of the problem is that it seems to be working from the other end - it is bu
 darren  3:05 AM
 And in what can be described only as an 'oh wow :disappointed: ' moment,  simply reordering the join criteria from most stringent to least stringent in the ON clause reduces query time from 60 seconds to 7 seconds
 
-![image](uploads/497d656acda6ef7d2133b7562d083fcb/image.png)
+![image](/uploads/497d656acda6ef7d2133b7562d083fcb/image.png)
 
 put the parent first - actually looks like I might have duplicated that criteria.
 Here is the full query I have been testing
 
 THis is hilarious - if I comment out the redundant second criteria in the query,  it reverts to 55+ seconds instead of 5
-![image](uploads/e861fd81c6e90d62b4c0c13d229a2e81/image.png)
+![image](/uploads/e861fd81c6e90d62b4c0c13d229a2e81/image.png)
 
 And commenting out the first parent = c.id and leaving the second is also > 1 minutes to run
 
-![image](uploads/2613b438926bea729d6ff62cc8985409/image.png)
+![image](/uploads/2613b438926bea729d6ff62cc8985409/image.png)
 
 This is a fun game - rechecking the two copies of parent = c.id and it's 9 ish seconds again!
 
-![image](uploads/7da166ea776fcdca9f1ab0240495c189/image.png)
+![image](/uploads/7da166ea776fcdca9f1ab0240495c189/image.png)
 
 Do the two copies have to be spaced like that or can I put them side by side?
 they can be adjacent like this
 
-![image](uploads/9753d71d99efca4a00c377f5eff22e7a/image.png)
+![image](/uploads/9753d71d99efca4a00c377f5eff22e7a/image.png)
 
 So, what have we learned? - the postgres optimizer is a little arbitrary and capricious but can be tricked by saying a join is importand AND a join is important.   That one line fix is probably worth including even with the other optimizations we are shipping in the next release
 

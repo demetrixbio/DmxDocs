@@ -85,7 +85,7 @@ Be careful with byte order marks in the `docker-compose.yml` file as these can l
 
 There's a small chance you'll get an error with a strange Python stack trace when you try to run `docker-compose up`:
 
-![odd_python_error_from_docker_compose](uploads/71061b7993574a0211362c617c0293c6/odd_python_error_from_docker_compose.png)
+![odd_python_error_from_docker_compose](/uploads/71061b7993574a0211362c617c0293c6/odd_python_error_from_docker_compose.png)
 
 If you see this, try opening the Docker Desktop application that was installed when you installed Docker, and see if there are any lingering containers, perhaps from old configuration files that have been deleted.  You may have to delete these containers by hand using `docker rm --force (container name)`.
 
