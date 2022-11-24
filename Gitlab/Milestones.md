@@ -1,6 +1,6 @@
 [[_TOC_]]
 
-[Milestones](https://gitlab.com/demetrixbio/gsl_web/-/milestones) in gitlab are essentially one order of organization above issues. Currently, we have decided to use them in two general ways (at two different levels of organization), though this could potentially evolve.
+Milestones in gitlab are essentially one order of organization above issues. Currently, we have decided to use them in two general ways (at two different levels of organization), though this could potentially evolve.
 
 ### Tracking a specific goal that is slightly too large for one or two tickets
 
