@@ -3,7 +3,7 @@ Demetrix FSharp coding documentation
 
 ## Preface
 
-This is a *subset* of the Demetrix devdocs.  It was written for our internal use to help maintain consistency.  If it happens to be useful for you,  that's a happy coincidence,  but no warranty implied, use at your own risk.   If you like it, let us know!  If you want to improve it, please send in suggestions / additions / changes.   If you want to change our code formatting conventions! that's a different conversation.
+This is a *subset* of the Demetrix devdocs.  It was written for our internal use to help maintain consistency.  If it happens to be useful for you,  that's a happy coincidence,  but no warranty implied, use at your own risk.  Some of it specific to our conventions, but hopefully interesting.     If you like it, let us know!  If you want to improve it, please send in suggestions / additions / changes.  
 
 ## .Compsci
 
