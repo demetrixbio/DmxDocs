@@ -237,6 +237,3 @@ module DateTime =
             TimeZoneInfo.ConvertTimeToUtc(dateTime, defaultTimeZone)
 
 ```
-
-This [epic journey issue](https://gitlab.com/demetrixbio/gsl_web/issues/310) might have some useful additional info.
-
